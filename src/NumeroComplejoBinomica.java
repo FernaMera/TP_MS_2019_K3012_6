@@ -1,29 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package javafxapplication1;
-
-/**
- *
- * @author alumno
- */
-
 public class NumeroComplejoBinomica {
-    private int real;
-    private int imaginario;
+    private double real;
+    private double imaginario;
     
-    public NumeroComplejoBinomica(int x, int y)
+    public NumeroComplejoBinomica(double x, double y)
     {
         real = x;
         imaginario = y;
     }
     
-    public void pasarAPolar()
+    public String pasarAPolar()
     {
-        float modulo = (float)Math.sqrt(Math.pow(real, 2) + Math.pow(imaginario, 2));
-        double argumento = (double)Math.atan(imaginario/real) / Math.PI;
+        double modulo = Math.sqrt(Math.pow(real, 2) + Math.pow(imaginario, 2));
+        double argumento = Math.atan(imaginario/real) / Math.PI;
         
         if(real < 0 && imaginario > 0)
         {
@@ -43,5 +31,6 @@ public class NumeroComplejoBinomica {
         
         
         System.out.println("[" + String.format("%.2f", modulo) + ";" + argumento + "PI" + "]");
+        return "[" + String.format("%.2f", modulo) + ";" + argumento + "PI" + "]";
     }
 }
