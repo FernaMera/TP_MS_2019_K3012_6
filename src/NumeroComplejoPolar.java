@@ -13,7 +13,7 @@ public class NumeroComplejoPolar {
         double real = modulo * Math.cos(argumento);
         double imaginario = modulo * Math.sin(argumento);
         
-        System.out.println("(" + String.format("%.2f",real) + ";" + imaginario + ")");
-        return "(" + String.format("%.2f",real) + ";" + imaginario + ")";
+        System.out.println("(" + real + ";" + imaginario + ")");
+        return "(" + real + ";" + imaginario + ")";
     }
 }

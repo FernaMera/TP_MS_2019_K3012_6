@@ -2,6 +2,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class MainMenu extends Application {
@@ -16,6 +17,7 @@ public class MainMenu extends Application {
         Parent root = loader.load(getClass().getResource("MainMenu.fxml"));
         primaryStage.setTitle("NCOM");
         primaryStage.setScene(new Scene(root, 287, 255));
+        primaryStage.getIcons().add(new Image("file:images/icon.png"));
         primaryStage.show();
     }
 

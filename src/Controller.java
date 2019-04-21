@@ -70,4 +70,13 @@ public class Controller implements Initializable {
         comboBoxTransformacion.setItems(options);
         comboBoxTransformacion.getSelectionModel().selectFirst();
     }
+
+    public void cambiarOpcionTransformacion()
+    {
+        String option = (String)comboBoxTransformacion.getValue();
+        if (option == "Binomica -> Polar")
+            unNumero.setPromptText("(a;b)");
+        if (option == "Polar -> Binomica")
+            unNumero.setPromptText("[a;b]");
+    }
 }

@@ -30,7 +30,7 @@ public class NumeroComplejoBinomica {
         }
         
         
-        System.out.println("[" + String.format("%.2f", modulo) + ";" + argumento + "PI" + "]");
-        return "[" + String.format("%.2f", modulo) + ";" + argumento + "PI" + "]";
+        System.out.println("[" + modulo + ";" + argumento + "PI" + "]");
+        return "[" + modulo + ";" + argumento + "PI" + "]";
     }
 }
