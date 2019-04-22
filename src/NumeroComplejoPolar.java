@@ -10,10 +10,14 @@ public class NumeroComplejoPolar {
     
     public String pasarABinomio()
     {
-        double real = modulo * Math.cos(argumento);
-        double imaginario = modulo * Math.sin(argumento);
+        double real = modulo * Math.cos(argumento  * Math.PI);
+        double imaginario = modulo * Math.sin(argumento  * Math.PI);
         
-        System.out.println("(" + real + ";" + imaginario + ")");
-        return "(" + real + ";" + imaginario + ")";
+        DecimalFormat df = new DecimalFormat("0.00");
+        
+       
+        
+        System.out.println( "(" + df.format(real) + ";" +  df.format(imaginario) + ")");
+        return "(" + df.format(real) + ";" + df.format(imaginario) + ")" ;
     }
 }
