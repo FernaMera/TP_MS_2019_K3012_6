@@ -13,7 +13,8 @@ public class NumeroComplejoBinomica {
         double modulo = Math.sqrt(Math.pow(real, 2) + Math.pow(imaginario, 2));
         double argumento = Math.atan(imaginario/real) / Math.PI;
         
-         
+        
+        
         if(real == 0 && imaginario >= 1){
             argumento = 0.5;
         }
@@ -21,6 +22,11 @@ public class NumeroComplejoBinomica {
         if(real == 0 && imaginario <= -1){
             argumento = 0.75;
         }
+        
+        if(real < 0 && imaginario == 0){
+            argumento = 1;
+        }
+        
         
         //2do Cuadrante
         if(real < 0 && imaginario > 0)
