@@ -10,7 +10,7 @@ public class NumeroComplejoPolar {
         argumento = y;
     }
     
-    public String pasarABinomio()
+    public String pasarABinomica()
     {
         double real = modulo * Math.cos(argumento  * Math.PI);
         double imaginario = modulo * Math.sin(argumento  * Math.PI);
