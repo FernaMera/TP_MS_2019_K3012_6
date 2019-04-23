@@ -15,11 +15,11 @@ public class NumeroComplejoBinomica {
         
         
         
-        if(real == 0 && imaginario >= 1){
+        if(real == 0 && imaginario > 0){
             argumento = 0.5;
         }
         
-        if(real == 0 && imaginario <= -1){
+        if(real == 0 && imaginario < 0 ){
             argumento = 0.75;
         }
         
