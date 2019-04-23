@@ -18,21 +18,23 @@ public class Controller implements Initializable {
     public void convertirNumero(){
 
         //leer numeros del string
-        String numeroComplejo = unNumero.getText();
+        String input = unNumero.getText();
         int finalPrimerNumero = 0;
         int finalSegundoNumero = 0;
 
+        String numeroComplejo = input.replace(',', '.');
+
         for(int i = 0; i < numeroComplejo.length(); i++)
-            if(numeroComplejo.charAt(i) == ';')
+            if (numeroComplejo.charAt(i) == ';')
                 finalPrimerNumero = i;
 
-        double primerNumero = Double.parseDouble(unNumero.getText(1, finalPrimerNumero));
+        double primerNumero = Double.parseDouble(numeroComplejo.substring(1, finalPrimerNumero));
 
         for(int i = finalPrimerNumero + 1; i < numeroComplejo.length(); i++)
             if(numeroComplejo.charAt(i) == ')' || numeroComplejo.charAt(i) == ']')
                 finalSegundoNumero = i;
 
-        double segundoNumero = Double.parseDouble(unNumero.getText(finalPrimerNumero + 1, finalSegundoNumero));
+        double segundoNumero = Double.parseDouble(numeroComplejo.substring(finalPrimerNumero + 1, finalSegundoNumero));
 
         String option = (String)comboBoxTransformacion.getValue();
         switch (option)
@@ -52,7 +54,7 @@ public class Controller implements Initializable {
                 System.out.println("Opcion 2 para transformar");
 
                 //TODO: polimorfismo
-                resultado.setText("" + numeroComplejoATransformar.pasarABinomio());
+                resultado.setText("" + numeroComplejoATransformar.pasarABinomica());
                 break;
             }
         }
