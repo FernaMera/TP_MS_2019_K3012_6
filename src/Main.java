@@ -63,7 +63,22 @@ public class Main
          numero8.pasarAPolar();
          
          
+      /* Pruebas con Operaciones 
       
+         
+        NumeroComplejoBinomica numero1 = new NumeroComplejoBinomica(3, 4);
+        NumeroComplejoBinomica numero2 = new NumeroComplejoBinomica(4, 5);
+        
+        numero1.sumar(numero2);
+        
+        NumeroComplejoBinomica numero3 = new NumeroComplejoBinomica(3, 2);
+        NumeroComplejoBinomica numero4 = new NumeroComplejoBinomica(5, -3);
+        
+        numero3.restar(numero4);
+        numero3.multiplicar(numero4);
+        numero3.dividir(numero4);
+      
+      */ 
       
         
         
