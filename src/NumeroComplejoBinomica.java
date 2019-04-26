@@ -10,6 +10,68 @@ public class NumeroComplejoBinomica {
         imaginario = y;
     }
     
+    /* OPERACIONES BASICAS */ 
+    
+    
+     public String sumar(NumeroComplejoBinomica numeroComplejo){
+      float  realSumado = (float) (real + numeroComplejo.real);
+        float imaginarioSumado = (float) (imaginario + numeroComplejo.imaginario);
+
+        
+        DecimalFormat df = new DecimalFormat("0.00");
+        
+         System.out.println( "(" + df.format(realSumado) + ";" +  df.format(imaginarioSumado) + ")");
+        return "(" + df.format(realSumado) + ";" + df.format(imaginarioSumado) + ")" ;
+    }
+     
+     
+      public String restar(NumeroComplejoBinomica numeroComplejo){
+      float  realSumado = (float) (real - numeroComplejo.real);
+        float imaginarioSumado = (float) (imaginario - numeroComplejo.imaginario);
+
+        
+        DecimalFormat df = new DecimalFormat("0.00");
+        
+         System.out.println( "(" + df.format(realSumado) + ";" +  df.format(imaginarioSumado) + ")");
+        return "(" + df.format(realSumado) + ";" + df.format(imaginarioSumado) + ")" ;
+    }
+    
+     public String multiplicar(NumeroComplejoBinomica numeroComplejo){
+      float  realM = (float) (real * numeroComplejo.real -numeroComplejo.imaginario * imaginario);
+        float imaginarioM = (float) (real*numeroComplejo.imaginario + numeroComplejo.real*imaginario);
+
+        
+        DecimalFormat df = new DecimalFormat("0.00");
+        
+         System.out.println( "(" + df.format(realM) + ";" +  df.format(imaginarioM) + ")");
+        return "(" + df.format(realM) + ";" + df.format(imaginarioM) + ")" ;
+    }
+        public String dividir(NumeroComplejoBinomica numeroComplejo){
+            
+        //NumeroComplejoBinomica aux=this.conjugate();
+        double divisor=Math.pow(numeroComplejo.imaginario, 2)+Math.pow(numeroComplejo.real, 2); 
+        double  realD = (float) (real * numeroComplejo.real +numeroComplejo.imaginario * imaginario)/divisor;
+        double imaginarioD = (float) -1*(real*numeroComplejo.imaginario - numeroComplejo.real*imaginario)/divisor;
+        
+        DecimalFormat df = new DecimalFormat("0.00");
+        
+         System.out.println( "(" + df.format(realD) + ";" +  df.format(imaginarioD) + ")");
+        return "(" + df.format(realD) + ";" + df.format(imaginarioD) + ")" ;
+    }
+    
+    /* VERR-ANALIZAR
+       public NumeroComplejoBinomica conjugate()
+       {
+           double imaginarioAux= (imaginario*-1);
+           
+           return new NumeroComplejoBinomica(real, imaginarioAux);
+       }
+    
+    */
+    
+    
+    
+    
     public String pasarAPolar()
     {
         double modulo = Math.sqrt(Math.pow(real, 2) + Math.pow(imaginario, 2));
