@@ -3,7 +3,9 @@ public class Main
     public static void main(String[] args)
     {
         //Para Probar:
-        NumeroComplejoBinomica unNumero = new NumeroComplejoBinomica(4, 5);
+        NumeroComplejoBinomica unNumero = new NumeroComplejoBinomica(1, 1);
+        NumeroComplejoBinomica otroNumero = new NumeroComplejoBinomica(3, 4);
+
 
         unNumero.pasarAPolar();
         
@@ -17,7 +19,7 @@ public class Main
         
         NumeroComplejoPolar numero2 = new NumeroComplejoPolar(1.41,0.25);
         
-       numero1.pasarAPolar();
+        numero1.pasarAPolar();
       
        
       numero2.pasarABinomica();
@@ -63,22 +65,14 @@ public class Main
          numero8.pasarAPolar();
          
          
-      /* Pruebas con Operaciones 
+      // Pruebas con Operaciones
+        
+        otroNumero.sumar(unNumero);
+        otroNumero.restar(unNumero);
+        otroNumero.multiplicar(unNumero);
+        otroNumero.dividir(unNumero);
       
-         
-        NumeroComplejoBinomica numero1 = new NumeroComplejoBinomica(3, 4);
-        NumeroComplejoBinomica numero2 = new NumeroComplejoBinomica(4, 5);
-        
-        numero1.sumar(numero2);
-        
-        NumeroComplejoBinomica numero3 = new NumeroComplejoBinomica(3, 2);
-        NumeroComplejoBinomica numero4 = new NumeroComplejoBinomica(5, -3);
-        
-        numero3.restar(numero4);
-        numero3.multiplicar(numero4);
-        numero3.dividir(numero4);
-      
-      */ 
+        //
       
         
         

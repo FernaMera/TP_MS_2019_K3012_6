@@ -1,6 +1,4 @@
-import java.text.DecimalFormat;
-
-public class NumeroComplejoPolar {
+public class NumeroComplejoPolar extends NumeroComplejo{
     private double modulo;
     private double argumento;
     
@@ -14,12 +12,7 @@ public class NumeroComplejoPolar {
     {
         double real = modulo * Math.cos(argumento  * Math.PI);
         double imaginario = modulo * Math.sin(argumento  * Math.PI);
-        
-        DecimalFormat df = new DecimalFormat("0.00");
-        
-       
-        
-        System.out.println( "(" + df.format(real) + ";" +  df.format(imaginario) + ")");
-        return "(" + df.format(real) + ";" + df.format(imaginario) + ")" ;
+
+        return this.mostrarResultado("(", real, imaginario, ")");
     }
 }
