@@ -1,6 +1,6 @@
 import java.text.DecimalFormat;
 
-public class NumeroComplejo
+public abstract class NumeroComplejo
 {
     public String mostrarResultado(String abrirPar, double a, double b, String cerrarPar)
     {

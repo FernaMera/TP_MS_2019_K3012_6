@@ -13,6 +13,6 @@ public class NumeroComplejoPolar extends NumeroComplejo{
         double real = modulo * Math.cos(argumento  * Math.PI);
         double imaginario = modulo * Math.sin(argumento  * Math.PI);
 
-        return this.mostrarResultado("(", real, imaginario, ")");
+        return mostrarResultado("(", real, imaginario, ")");
     }
 }

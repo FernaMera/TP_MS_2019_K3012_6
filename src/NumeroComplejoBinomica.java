@@ -15,7 +15,7 @@ public class NumeroComplejoBinomica extends NumeroComplejo{
         double realSumado = real + numeroComplejo.real;
         double imaginarioSumado = imaginario + numeroComplejo.imaginario;
 
-         return this.mostrarResultado("(", realSumado, imaginarioSumado, ")");
+        return mostrarResultado("(", realSumado, imaginarioSumado, ")");
     }
      
      
@@ -23,14 +23,14 @@ public class NumeroComplejoBinomica extends NumeroComplejo{
         double realSumado = real - numeroComplejo.real;
         double imaginarioSumado = imaginario - numeroComplejo.imaginario;
 
-        return this.mostrarResultado("(", realSumado, imaginarioSumado, ")");
+        return mostrarResultado("(", realSumado, imaginarioSumado, ")");
     }
     
     public String multiplicar(NumeroComplejoBinomica numeroComplejo){
         double realM = real * numeroComplejo.real -numeroComplejo.imaginario * imaginario;
         double imaginarioM = real*numeroComplejo.imaginario + numeroComplejo.real*imaginario;
 
-        return this.mostrarResultado("(", realM, imaginarioM, ")");
+        return mostrarResultado("(", realM, imaginarioM, ")");
     }
 
     public String dividir(NumeroComplejoBinomica numeroComplejo){
@@ -39,7 +39,7 @@ public class NumeroComplejoBinomica extends NumeroComplejo{
         double  realD = (float) (real * numeroComplejo.real +numeroComplejo.imaginario * imaginario)/divisor;
         double imaginarioD = (float) -1*(real*numeroComplejo.imaginario - numeroComplejo.real*imaginario)/divisor;
 
-        return this.mostrarResultado("(", realD, imaginarioD, ")");
+        return mostrarResultado("(", realD, imaginarioD, ")");
     }
     
     /* VERR-ANALIZAR
@@ -91,6 +91,6 @@ public class NumeroComplejoBinomica extends NumeroComplejo{
             argumento += 2;
         }
 
-        return this.mostrarResultado("[", modulo, argumento, "PI]");
+        return mostrarResultado("[", modulo, argumento, "PI]");
     }
 }

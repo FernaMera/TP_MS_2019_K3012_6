@@ -16,9 +16,11 @@ public class MainMenu extends Application {
         FXMLLoader loader = new FXMLLoader();
         Parent root = loader.load(getClass().getResource("MainMenu.fxml"));
         primaryStage.setTitle("NCOM");
-        primaryStage.setScene(new Scene(root, 287, 255));
+        primaryStage.setScene(new Scene(root, 300, 300));
         primaryStage.getIcons().add(new Image("file:images/icon.png"));
         primaryStage.show();
+        primaryStage.setMinWidth(primaryStage.getWidth());
+        primaryStage.setMinHeight(primaryStage.getHeight());
     }
 
 }
