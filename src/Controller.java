@@ -21,7 +21,12 @@ public class Controller implements Initializable {
 
         //leer numeros del string
         String input = unNumero.getText();
+        if(input.isEmpty())
+            return;
+
         double[] numeroComplejo = this.scanner(input);
+        if (numeroComplejo == null)
+            return;
 
         String option = (String)comboBoxTransformacion.getValue();
         switch (option)
@@ -33,7 +38,7 @@ public class Controller implements Initializable {
                 System.out.println("Opcion 1 para transformar");
 
                 //TODO: polimorfismo
-                resultado.setText("" + numeroComplejoATransformar.pasarAPolar());
+                resultado.setText(numeroComplejoATransformar.pasarAPolar());
                 break;
             }
             case "Polar -> Binomica":
@@ -43,7 +48,7 @@ public class Controller implements Initializable {
                 System.out.println("Opcion 2 para transformar");
 
                 //TODO: polimorfismo
-                resultado.setText("" + numeroComplejoATransformar.pasarABinomica());
+                resultado.setText(numeroComplejoATransformar.pasarABinomica());
                 break;
             }
         }
@@ -74,7 +79,11 @@ public class Controller implements Initializable {
         NumeroComplejoBinomica numeroComplejo1 = obtenerNumero(numeroOpBasico1);
         NumeroComplejoBinomica numeroComplejo2 = obtenerNumero(numeroOpBasico2);
 
-        resultadoBasico.setText(numeroComplejo1.sumar(numeroComplejo2));
+        try {
+            resultadoBasico.setText(numeroComplejo1.sumar(numeroComplejo2));
+        } catch(Exception nullNumbers) {
+            //does nothing
+        }
     }
 
     public void restar()
@@ -82,7 +91,11 @@ public class Controller implements Initializable {
         NumeroComplejoBinomica numeroComplejo1 = obtenerNumero(numeroOpBasico1);
         NumeroComplejoBinomica numeroComplejo2 = obtenerNumero(numeroOpBasico2);
 
-        resultadoBasico.setText(numeroComplejo1.restar(numeroComplejo2));
+        try {
+            resultadoBasico.setText(numeroComplejo1.restar(numeroComplejo2));
+        } catch(Exception nullNumbers) {
+            //does nothing
+        }
     }
 
     public void multiplicar()
@@ -90,7 +103,11 @@ public class Controller implements Initializable {
         NumeroComplejoBinomica numeroComplejo1 = obtenerNumero(numeroOpBasico1);
         NumeroComplejoBinomica numeroComplejo2 = obtenerNumero(numeroOpBasico2);
 
-        resultadoBasico.setText(numeroComplejo1.multiplicar(numeroComplejo2));
+        try {
+            resultadoBasico.setText(numeroComplejo1.multiplicar(numeroComplejo2));
+        } catch(Exception nullNumbers) {
+            //does nothing
+        }
     }
 
     public void dividir()
@@ -98,7 +115,11 @@ public class Controller implements Initializable {
         NumeroComplejoBinomica numeroComplejo1 = obtenerNumero(numeroOpBasico1);
         NumeroComplejoBinomica numeroComplejo2 = obtenerNumero(numeroOpBasico2);
 
-        resultadoBasico.setText(numeroComplejo1.dividir(numeroComplejo2));
+        try {
+            resultadoBasico.setText(numeroComplejo1.dividir(numeroComplejo2));
+        } catch(Exception nullNumbers) {
+            //does nothing
+        }
     }
 
     public void cerrarAplicacion()
@@ -129,7 +150,8 @@ public class Controller implements Initializable {
         }
         catch (Exception e)
         {
-            //TODO mostrar error
+            mostrarAlerta();
+            return null;
         }
 
         for(int i = finalPrimerNumero + 1; i < numeroComplejo.length(); i++)
@@ -141,7 +163,8 @@ public class Controller implements Initializable {
         }
         catch (Exception e)
         {
-            //TODO mostrar error
+            mostrarAlerta();
+            return null;
         }
 
         return value;
@@ -156,7 +179,12 @@ public class Controller implements Initializable {
         NumeroComplejoPolar otroNumeroComplejo;
 
         input = numero.getText();
+        if(input.isEmpty())
+            return null;
+
         numeroComplejoInput = this.scanner(input);
+        if(numeroComplejoInput == null)
+            return null;
 
         if (input.charAt(0) == '(')
             numeroComplejo =  new NumeroComplejoBinomica(numeroComplejoInput[0], numeroComplejoInput[1]);
@@ -171,5 +199,15 @@ public class Controller implements Initializable {
         }
 
         return numeroComplejo;
+    }
+
+    private void mostrarAlerta()
+    {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Precaucion");
+        alert.setHeaderText("Error de Sintaxis");
+        alert.setContentText("Los numeros complejos no deben tener letras ni otros caracteres");
+
+        alert.showAndWait();
     }
 }

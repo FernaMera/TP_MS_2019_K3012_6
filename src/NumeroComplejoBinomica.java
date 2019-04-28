@@ -68,7 +68,10 @@ public class NumeroComplejoBinomica extends NumeroComplejo{
         if(real < 0 && imaginario == 0){
             argumento = 1;
         }
-        
+
+        if(real == 0 && imaginario == 0){
+            argumento = 0;
+        }
         
         //2do Cuadrante
         if(real < 0 && imaginario > 0)
