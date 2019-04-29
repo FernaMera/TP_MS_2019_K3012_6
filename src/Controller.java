@@ -24,32 +24,30 @@ public class Controller implements Initializable {
         if(input.isEmpty())
             return;
 
-        double[] numeroComplejo = this.scanner(input);
-        if (numeroComplejo == null)
-            return;
-
         String option = (String)comboBoxTransformacion.getValue();
         switch (option)
         {
             case "Binomica -> Polar":
             {
-                NumeroComplejoBinomica numeroComplejoATransformar =
-                        new NumeroComplejoBinomica(numeroComplejo[0],numeroComplejo[1]);
-                System.out.println("Opcion 1 para transformar");
-
-                //TODO: polimorfismo
-                resultado.setText(numeroComplejoATransformar.pasarAPolar());
-                break;
+                try {
+                    NumeroComplejoBinomica numeroComplejoATransformar = new NumeroComplejoBinomica(input);
+                    resultado.setText(numeroComplejoATransformar.pasarAPolar());
+                    break;
+                } catch (Exception e){
+                    mostrarAlerta();
+                    return;
+                }
             }
             case "Polar -> Binomica":
             {
-                NumeroComplejoPolar numeroComplejoATransformar =
-                        new NumeroComplejoPolar(numeroComplejo[0],numeroComplejo[1]);
-                System.out.println("Opcion 2 para transformar");
-
-                //TODO: polimorfismo
-                resultado.setText(numeroComplejoATransformar.pasarABinomica());
-                break;
+                try {
+                    NumeroComplejoPolar numeroComplejoATransformar = new NumeroComplejoPolar(input);
+                    resultado.setText(numeroComplejoATransformar.pasarABinomica());
+                    break;
+                } catch (Exception e) {
+                    mostrarAlerta();
+                    return;
+                }
             }
         }
     }
@@ -80,7 +78,11 @@ public class Controller implements Initializable {
         NumeroComplejoBinomica numeroComplejo2 = obtenerNumero(numeroOpBasico2);
 
         try {
-            resultadoBasico.setText(numeroComplejo1.sumar(numeroComplejo2));
+            String resultado1 = numeroComplejo1.sumar(numeroComplejo2);
+
+            //pasar a polar
+            NumeroComplejoBinomica numeroAConvertir = new NumeroComplejoBinomica(resultado1);
+            resultadoBasico.setText(resultado1 + " o " + numeroAConvertir.pasarAPolar());
         } catch(Exception nullNumbers) {
             //does nothing
         }
@@ -92,7 +94,11 @@ public class Controller implements Initializable {
         NumeroComplejoBinomica numeroComplejo2 = obtenerNumero(numeroOpBasico2);
 
         try {
-            resultadoBasico.setText(numeroComplejo1.restar(numeroComplejo2));
+            String resultado1 = numeroComplejo1.restar(numeroComplejo2);
+
+            //pasar a polar
+            NumeroComplejoBinomica numeroAConvertir = new NumeroComplejoBinomica(resultado1);
+            resultadoBasico.setText(resultado1 + " o " + numeroAConvertir.pasarAPolar());
         } catch(Exception nullNumbers) {
             //does nothing
         }
@@ -104,7 +110,11 @@ public class Controller implements Initializable {
         NumeroComplejoBinomica numeroComplejo2 = obtenerNumero(numeroOpBasico2);
 
         try {
-            resultadoBasico.setText(numeroComplejo1.multiplicar(numeroComplejo2));
+            String resultado1 = numeroComplejo1.multiplicar(numeroComplejo2);
+
+            //pasar a polar
+            NumeroComplejoBinomica numeroAConvertir = new NumeroComplejoBinomica(resultado1);
+            resultadoBasico.setText(resultado1 + " o " + numeroAConvertir.pasarAPolar());
         } catch(Exception nullNumbers) {
             //does nothing
         }
@@ -116,7 +126,11 @@ public class Controller implements Initializable {
         NumeroComplejoBinomica numeroComplejo2 = obtenerNumero(numeroOpBasico2);
 
         try {
-            resultadoBasico.setText(numeroComplejo1.dividir(numeroComplejo2));
+            String resultado1 = numeroComplejo1.dividir(numeroComplejo2);
+
+            //pasar a polar
+            NumeroComplejoBinomica numeroAConvertir = new NumeroComplejoBinomica(resultado1);
+            resultadoBasico.setText(resultado1 + " o " + numeroAConvertir.pasarAPolar());
         } catch(Exception nullNumbers) {
             //does nothing
         }
@@ -133,69 +147,23 @@ public class Controller implements Initializable {
     }
 
     //Metodos Auxiliares
-    private double[] scanner(String input)
-    {
-        int finalPrimerNumero = 0;
-        int finalSegundoNumero = 0;
-        double[] value = new double[2];
-
-        String numeroComplejo = input.replace(',', '.');
-
-        for(int i = 0; i < numeroComplejo.length(); i++)
-            if (numeroComplejo.charAt(i) == ';')
-                finalPrimerNumero = i;
-
-        try {
-            value[0] = Double.parseDouble(numeroComplejo.substring(1, finalPrimerNumero));
-        }
-        catch (Exception e)
-        {
-            mostrarAlerta();
-            return null;
-        }
-
-        for(int i = finalPrimerNumero + 1; i < numeroComplejo.length(); i++)
-            if(numeroComplejo.charAt(i) == ')' || numeroComplejo.charAt(i) == ']')
-                finalSegundoNumero = i;
-
-        try {
-            value[1] = Double.parseDouble(numeroComplejo.substring(finalPrimerNumero + 1, finalSegundoNumero));
-        }
-        catch (Exception e)
-        {
-            mostrarAlerta();
-            return null;
-        }
-
-        return value;
-    }
-
     private NumeroComplejoBinomica obtenerNumero(TextField numero)
     {
-        double[] numeroComplejoInput;
         String input;
         NumeroComplejoBinomica numeroComplejo;
-        String pasaje;
         NumeroComplejoPolar otroNumeroComplejo;
 
         input = numero.getText();
         if(input.isEmpty())
             return null;
 
-        numeroComplejoInput = this.scanner(input);
-        if(numeroComplejoInput == null)
-            return null;
-
         if (input.charAt(0) == '(')
-            numeroComplejo =  new NumeroComplejoBinomica(numeroComplejoInput[0], numeroComplejoInput[1]);
+            numeroComplejo =  new NumeroComplejoBinomica(input);
         else{
-            otroNumeroComplejo =  new NumeroComplejoPolar(numeroComplejoInput[0], numeroComplejoInput[1]);
+            otroNumeroComplejo =  new NumeroComplejoPolar(input);
 
             //pasar a binomica
-            pasaje = otroNumeroComplejo.pasarABinomica();
-
-            numeroComplejoInput = this.scanner(pasaje);
-            numeroComplejo = new NumeroComplejoBinomica(numeroComplejoInput[0], numeroComplejoInput[1]);
+            numeroComplejo = new NumeroComplejoBinomica(otroNumeroComplejo.pasarABinomica());
         }
 
         return numeroComplejo;

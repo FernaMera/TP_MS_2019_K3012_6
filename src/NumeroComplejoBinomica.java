@@ -7,6 +7,27 @@ public class NumeroComplejoBinomica extends NumeroComplejo{
         real = x;
         imaginario = y;
     }
+
+    public NumeroComplejoBinomica(String input)
+    {
+        int finalPrimerNumero = 0;
+        int finalSegundoNumero = 0;
+
+        String numeroComplejo = input.replace(',', '.');
+
+        for(int i = 0; i < numeroComplejo.length(); i++)
+            if (numeroComplejo.charAt(i) == ';')
+                finalPrimerNumero = i;
+
+        real = Double.parseDouble(numeroComplejo.substring(1, finalPrimerNumero));
+
+
+        for(int i = finalPrimerNumero + 1; i < numeroComplejo.length(); i++)
+            if(numeroComplejo.charAt(i) == ')' || numeroComplejo.charAt(i) == ']')
+                finalSegundoNumero = i;
+
+        imaginario = Double.parseDouble(numeroComplejo.substring(finalPrimerNumero + 1, finalSegundoNumero));
+    }
     
     /* OPERACIONES BASICAS */ 
     
