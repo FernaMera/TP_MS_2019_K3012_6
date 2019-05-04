@@ -35,4 +35,26 @@ public class NumeroComplejoPolar extends NumeroComplejo{
 
         return mostrarResultado("(", real, imaginario, ")");
     }
+    
+     public String multiplicar(NumeroComplejoPolar numeroComplejo){
+       double moduloM = modulo * numeroComplejo.modulo;
+       double argumentoM = argumento + numeroComplejo.argumento;
+       
+         return mostrarResultado("[", moduloM, argumentoM, "PI]");
+         
+    }
+    
+    public String dividir(NumeroComplejoPolar numeroComplejo){
+       
+        
+     double moduloD = modulo / numeroComplejo.modulo;
+     double argumentoD = argumento - numeroComplejo.argumento;    
+         
+     return mostrarResultado("[", moduloD, argumentoD, "PI]");
+             
+    
+        
+    }
+    
+    
 }
