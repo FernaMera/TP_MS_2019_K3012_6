@@ -74,6 +74,20 @@ public class Main
       
         //
       
+        //Pruebas con clase NumeroComplejoPolar
+        
+        System.out.println("****************************");
+        
+        NumeroComplejoPolar numeroD1 = new NumeroComplejoPolar(2,0.33);
+        
+         NumeroComplejoPolar numeroD2 = new NumeroComplejoPolar(5,0.2);
+         
+         numeroD1.multiplicar(numeroD2);
+         
+         System.out.println("****************************");
+         
+         numeroD1.dividir(numeroD2);
+ 
         
         
     }
