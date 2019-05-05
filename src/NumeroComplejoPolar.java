@@ -36,6 +36,27 @@ public class NumeroComplejoPolar extends NumeroComplejo{
         return mostrarResultado("(", real, imaginario, ")");
     }
     
+    
+    
+    public String sumar(NumeroComplejoBinomica numeroComplejo){
+    
+       NumeroComplejoBinomica numeroConvertido = new NumeroComplejoBinomica(this.pasarABinomica());
+      return numeroConvertido.sumar(numeroComplejo);
+    }
+   
+   public String restar(NumeroComplejoBinomica numeroComplejo){
+       NumeroComplejoBinomica numeroConvertido = new NumeroComplejoBinomica(this.pasarABinomica());
+       return numeroConvertido.restar(numeroComplejo);
+       
+   }
+   
+   public String multiplicar(NumeroComplejoBinomica numeroComplejo){
+       NumeroComplejoBinomica numeroConvertido = new NumeroComplejoBinomica(this.pasarABinomica());
+       return numeroConvertido.multiplicar(numeroComplejo);
+   }
+    
+    
+    
      public String multiplicar(NumeroComplejoPolar numeroComplejo){
        double moduloM = modulo * numeroComplejo.modulo;
        double argumentoM = argumento + numeroComplejo.argumento;
@@ -43,6 +64,12 @@ public class NumeroComplejoPolar extends NumeroComplejo{
          return mostrarResultado("[", moduloM, argumentoM, "PI]");
          
     }
+    
+    public String dividir(NumeroComplejoBinomica numeroComplejo){
+        NumeroComplejoBinomica numeroConvertido = new NumeroComplejoBinomica(this.pasarABinomica());
+        return numeroConvertido.dividir(numeroComplejo);
+    }
+    
     
     public String dividir(NumeroComplejoPolar numeroComplejo){
        
