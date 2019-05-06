@@ -3,7 +3,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -74,11 +73,25 @@ public class Controller implements Initializable {
 
     public void sumar()
     {
-        NumeroComplejoBinomica numeroComplejo1 = obtenerNumero(numeroOpBasico1);
-        NumeroComplejoBinomica numeroComplejo2 = obtenerNumero(numeroOpBasico2);
+        NumeroComplejoInterfaz numeroComplejo1 = obtenerNumeroComplejo(numeroOpBasico1);
+        NumeroComplejoBinomica numeroComplejoB2;
+        NumeroComplejoPolar numeroComplejoP2;
+        String input;
+
+        input = numeroOpBasico2.getText();
+        if(input.isEmpty())
+            return;
 
         try {
-            String resultado1 = numeroComplejo1.sumar(numeroComplejo2);
+            String resultado1;
+
+            if (input.charAt(0) == '('){
+                numeroComplejoB2 = new NumeroComplejoBinomica(input);
+                resultado1 = numeroComplejo1.sumar(numeroComplejoB2);
+            } else {
+                numeroComplejoP2 = new NumeroComplejoPolar(input);
+                resultado1 = numeroComplejo1.sumar(numeroComplejoP2);
+            }
 
             //pasar a polar
             NumeroComplejoBinomica numeroAConvertir = new NumeroComplejoBinomica(resultado1);
@@ -90,11 +103,25 @@ public class Controller implements Initializable {
 
     public void restar()
     {
-        NumeroComplejoBinomica numeroComplejo1 = obtenerNumero(numeroOpBasico1);
-        NumeroComplejoBinomica numeroComplejo2 = obtenerNumero(numeroOpBasico2);
+        NumeroComplejoInterfaz numeroComplejo1 = obtenerNumeroComplejo(numeroOpBasico1);
+        NumeroComplejoBinomica numeroComplejoB2;
+        NumeroComplejoPolar numeroComplejoP2;
+        String input;
+
+        input = numeroOpBasico2.getText();
+        if(input.isEmpty())
+            return;
 
         try {
-            String resultado1 = numeroComplejo1.restar(numeroComplejo2);
+            String resultado1;
+
+            if (input.charAt(0) == '('){
+                numeroComplejoB2 = new NumeroComplejoBinomica(input);
+                resultado1 = numeroComplejo1.restar(numeroComplejoB2);
+            } else {
+                numeroComplejoP2 = new NumeroComplejoPolar(input);
+                resultado1 = numeroComplejo1.restar(numeroComplejoP2);
+            }
 
             //pasar a polar
             NumeroComplejoBinomica numeroAConvertir = new NumeroComplejoBinomica(resultado1);
@@ -106,11 +133,25 @@ public class Controller implements Initializable {
 
     public void multiplicar()
     {
-        NumeroComplejoBinomica numeroComplejo1 = obtenerNumero(numeroOpBasico1);
-        NumeroComplejoBinomica numeroComplejo2 = obtenerNumero(numeroOpBasico2);
+        NumeroComplejoInterfaz numeroComplejo1 = obtenerNumeroComplejo(numeroOpBasico1);
+        NumeroComplejoBinomica numeroComplejoB2;
+        NumeroComplejoPolar numeroComplejoP2;
+        String input;
+
+        input = numeroOpBasico2.getText();
+        if(input.isEmpty())
+            return;
 
         try {
-            String resultado1 = numeroComplejo1.multiplicar(numeroComplejo2);
+            String resultado1;
+
+            if (input.charAt(0) == '('){
+                numeroComplejoB2 = new NumeroComplejoBinomica(input);
+                resultado1 = numeroComplejo1.multiplicar(numeroComplejoB2);
+            } else {
+                numeroComplejoP2 = new NumeroComplejoPolar(input);
+                resultado1 = numeroComplejo1.multiplicar(numeroComplejoP2);
+            }
 
             //pasar a polar
             NumeroComplejoBinomica numeroAConvertir = new NumeroComplejoBinomica(resultado1);
@@ -122,11 +163,25 @@ public class Controller implements Initializable {
 
     public void dividir()
     {
-        NumeroComplejoBinomica numeroComplejo1 = obtenerNumero(numeroOpBasico1);
-        NumeroComplejoBinomica numeroComplejo2 = obtenerNumero(numeroOpBasico2);
+        NumeroComplejoInterfaz numeroComplejo1 = obtenerNumeroComplejo(numeroOpBasico1);
+        NumeroComplejoBinomica numeroComplejoB2;
+        NumeroComplejoPolar numeroComplejoP2;
+        String input;
+
+        input = numeroOpBasico2.getText();
+        if(input.isEmpty())
+            return;
 
         try {
-            String resultado1 = numeroComplejo1.dividir(numeroComplejo2);
+            String resultado1;
+
+            if (input.charAt(0) == '('){
+                numeroComplejoB2 = new NumeroComplejoBinomica(input);
+                resultado1 = numeroComplejo1.dividir(numeroComplejoB2);
+            } else {
+                numeroComplejoP2 = new NumeroComplejoPolar(input);
+                resultado1 = numeroComplejo1.dividir(numeroComplejoP2);
+            }
 
             //pasar a polar
             NumeroComplejoBinomica numeroAConvertir = new NumeroComplejoBinomica(resultado1);
@@ -147,26 +202,18 @@ public class Controller implements Initializable {
     }
 
     //Metodos Auxiliares
-    private NumeroComplejoBinomica obtenerNumero(TextField numero)
+    private NumeroComplejoInterfaz obtenerNumeroComplejo(TextField numero)
     {
         String input;
-        NumeroComplejoBinomica numeroComplejo;
-        NumeroComplejoPolar otroNumeroComplejo;
 
         input = numero.getText();
         if(input.isEmpty())
             return null;
 
         if (input.charAt(0) == '(')
-            numeroComplejo =  new NumeroComplejoBinomica(input);
-        else{
-            otroNumeroComplejo =  new NumeroComplejoPolar(input);
-
-            //pasar a binomica
-            numeroComplejo = new NumeroComplejoBinomica(otroNumeroComplejo.pasarABinomica());
-        }
-
-        return numeroComplejo;
+            return new NumeroComplejoBinomica(input);
+        else
+            return new NumeroComplejoPolar(input);
     }
 
     private void mostrarAlerta()

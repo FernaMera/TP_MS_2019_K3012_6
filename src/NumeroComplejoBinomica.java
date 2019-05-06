@@ -1,4 +1,4 @@
-public class NumeroComplejoBinomica extends NumeroComplejo{
+public class NumeroComplejoBinomica extends NumeroComplejo implements NumeroComplejoInterfaz{
     private double real;
     private double imaginario;
     
@@ -38,13 +38,22 @@ public class NumeroComplejoBinomica extends NumeroComplejo{
 
         return mostrarResultado("(", realSumado, imaginarioSumado, ")");
     }
-     
+
+    public String sumar(NumeroComplejoPolar numeroComplejo) {
+        //TODO
+        return null;
+    }
      
     public String restar(NumeroComplejoBinomica numeroComplejo){
         double realSumado = real - numeroComplejo.real;
         double imaginarioSumado = imaginario - numeroComplejo.imaginario;
 
         return mostrarResultado("(", realSumado, imaginarioSumado, ")");
+    }
+
+    public String restar(NumeroComplejoPolar numeroComplejo) {
+        //TODO
+        return null;
     }
     
     public String multiplicar(NumeroComplejoBinomica numeroComplejo){
@@ -54,6 +63,11 @@ public class NumeroComplejoBinomica extends NumeroComplejo{
         return mostrarResultado("(", realM, imaginarioM, ")");
     }
 
+    public String multiplicar(NumeroComplejoPolar numeroComplejo) {
+        //TODO
+        return null;
+    }
+
     public String dividir(NumeroComplejoBinomica numeroComplejo){
         //NumeroComplejoBinomica aux=this.conjugate();
         double divisor=Math.pow(numeroComplejo.imaginario, 2)+Math.pow(numeroComplejo.real, 2); 
@@ -61,6 +75,11 @@ public class NumeroComplejoBinomica extends NumeroComplejo{
         double imaginarioD = (float) -1*(real*numeroComplejo.imaginario - numeroComplejo.real*imaginario)/divisor;
 
         return mostrarResultado("(", realD, imaginarioD, ")");
+    }
+
+    public String dividir(NumeroComplejoPolar numeroComplejo) {
+        //TODO
+        return null;
     }
     
     /* VERR-ANALIZAR
