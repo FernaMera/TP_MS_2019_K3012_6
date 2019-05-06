@@ -76,9 +76,11 @@ public class NumeroComplejoPolar extends NumeroComplejo implements NumeroComplej
     }
     
     public String dividir(NumeroComplejoPolar numeroComplejo){
-     double moduloD = modulo / numeroComplejo.modulo;
-     double argumentoD = argumento - numeroComplejo.argumento;    
+        if (numeroComplejo.modulo == 0)
+            return null;
+        double moduloD = modulo / numeroComplejo.modulo;
+        double argumentoD = argumento - numeroComplejo.argumento;
          
-     return mostrarResultado("[", moduloD, argumentoD, "PI]");
+        return mostrarResultado("[", moduloD, argumentoD, "PI]");
     }
 }
