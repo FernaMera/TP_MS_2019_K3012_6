@@ -31,16 +31,15 @@ public class NumeroComplejoPolar extends NumeroComplejo implements NumeroComplej
     
     public String pasarABinomica()
     {
-        double real = modulo * Math.cos(argumento);
-        double imaginario = modulo * Math.sin(argumento);
+        double real = modulo * Math.cos(argumento * Math.PI);
+        double imaginario = modulo * Math.sin(argumento * Math.PI);
 
         return mostrarResultado("(", real, imaginario, ")");
     }
     
     public String sumar(NumeroComplejoBinomica numeroComplejo){
-    
-       NumeroComplejoBinomica numeroConvertido = new NumeroComplejoBinomica(this.pasarABinomica());
-      return numeroConvertido.sumar(numeroComplejo);
+        NumeroComplejoBinomica numeroConvertido = new NumeroComplejoBinomica(this.pasarABinomica());
+        return numeroConvertido.sumar(numeroComplejo);
     }
 
     public String sumar(NumeroComplejoPolar numeroComplejo){
@@ -66,8 +65,8 @@ public class NumeroComplejoPolar extends NumeroComplejo implements NumeroComplej
     }
     
     public String multiplicar(NumeroComplejoPolar numeroComplejo){
-       double moduloM = modulo * numeroComplejo.modulo;
-       double argumentoM = argumento + numeroComplejo.argumento;
+        double moduloM = modulo * numeroComplejo.modulo;
+        double argumentoM = argumento + numeroComplejo.argumento;
        
          return mostrarResultado("[", moduloM, argumentoM, "PI]");
     }

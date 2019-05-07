@@ -148,14 +148,18 @@ public class Controller implements Initializable {
             if (input.charAt(0) == '('){
                 numeroComplejoB2 = new NumeroComplejoBinomica(input);
                 resultado1 = numeroComplejo1.multiplicar(numeroComplejoB2);
+
+                //pasar a polar
+                NumeroComplejoBinomica numeroAConvertir = new NumeroComplejoBinomica(resultado1);
+                resultadoBasico.setText(resultado1 + " o " + numeroAConvertir.pasarAPolar());
             } else {
                 numeroComplejoP2 = new NumeroComplejoPolar(input);
                 resultado1 = numeroComplejo1.multiplicar(numeroComplejoP2);
-            }
 
-            //pasar a polar
-            NumeroComplejoBinomica numeroAConvertir = new NumeroComplejoBinomica(resultado1);
-            resultadoBasico.setText(resultado1 + " o " + numeroAConvertir.pasarAPolar());
+                //pasar a binomica
+                NumeroComplejoPolar numeroAConvertir = new NumeroComplejoPolar(resultado1);
+                resultadoBasico.setText(numeroAConvertir.pasarABinomica() + " o " + resultado1);
+            }
         } catch(Exception nullNumbers) {
             //does nothing
         }
@@ -178,14 +182,18 @@ public class Controller implements Initializable {
             if (input.charAt(0) == '('){
                 numeroComplejoB2 = new NumeroComplejoBinomica(input);
                 resultado1 = numeroComplejo1.dividir(numeroComplejoB2);
+
+                //pasar a polar
+                NumeroComplejoBinomica numeroAConvertir = new NumeroComplejoBinomica(resultado1);
+                resultadoBasico.setText(resultado1 + " o " + numeroAConvertir.pasarAPolar());
             } else {
                 numeroComplejoP2 = new NumeroComplejoPolar(input);
                 resultado1 = numeroComplejo1.dividir(numeroComplejoP2);
-            }
 
-            //pasar a polar
-            NumeroComplejoBinomica numeroAConvertir = new NumeroComplejoBinomica(resultado1);
-            resultadoBasico.setText(resultado1 + " o " + numeroAConvertir.pasarAPolar());
+                //pasar a binomica
+                NumeroComplejoPolar numeroAConvertir = new NumeroComplejoPolar(resultado1);
+                resultadoBasico.setText(numeroAConvertir.pasarABinomica() + " o " + resultado1);
+            }
         } catch(Exception nullNumbers) {
             //does nothing
         }
