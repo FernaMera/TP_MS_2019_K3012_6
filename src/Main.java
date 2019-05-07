@@ -1,4 +1,4 @@
-public class Main
+public class Main 
 {
     public static void main(String[] args)
     {
@@ -10,7 +10,7 @@ public class Main
         unNumero.pasarAPolar();
         
         
-        // Pruebas 
+        // Pruebas :
         
         // 1er cuadrante
         
