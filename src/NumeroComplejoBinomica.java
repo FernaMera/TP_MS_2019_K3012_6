@@ -40,8 +40,8 @@ public class NumeroComplejoBinomica extends NumeroComplejo implements NumeroComp
     }
 
     public String sumar(NumeroComplejoPolar numeroComplejo) {
-        //TODO
-        return null;
+        NumeroComplejoBinomica convertido=new NumeroComplejoBinomica(numeroComplejo.pasarABinomica());
+        return this.sumar(convertido);
     }
      
     public String restar(NumeroComplejoBinomica numeroComplejo){
@@ -52,8 +52,8 @@ public class NumeroComplejoBinomica extends NumeroComplejo implements NumeroComp
     }
 
     public String restar(NumeroComplejoPolar numeroComplejo) {
-        //TODO
-        return null;
+        NumeroComplejoBinomica convertido=new NumeroComplejoBinomica(numeroComplejo.pasarABinomica());
+        return this.restar(convertido);
     }
     
     public String multiplicar(NumeroComplejoBinomica numeroComplejo){
@@ -64,8 +64,8 @@ public class NumeroComplejoBinomica extends NumeroComplejo implements NumeroComp
     }
 
     public String multiplicar(NumeroComplejoPolar numeroComplejo) {
-        //TODO
-        return null;
+        NumeroComplejoBinomica convertido=new NumeroComplejoBinomica(numeroComplejo.pasarABinomica());
+        return this.multiplicar(convertido);
     }
 
     public String dividir(NumeroComplejoBinomica numeroComplejo){
@@ -78,8 +78,8 @@ public class NumeroComplejoBinomica extends NumeroComplejo implements NumeroComp
     }
 
     public String dividir(NumeroComplejoPolar numeroComplejo) {
-        //TODO
-        return null;
+        NumeroComplejoBinomica convertido=new NumeroComplejoBinomica(numeroComplejo.pasarABinomica());
+        return this.dividir(convertido);
     }
     
     /* VERR-ANALIZAR
