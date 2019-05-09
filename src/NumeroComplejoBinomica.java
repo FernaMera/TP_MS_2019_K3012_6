@@ -64,16 +64,19 @@ public class NumeroComplejoBinomica extends NumeroComplejo implements NumeroComp
     }
 
     public String multiplicar(NumeroComplejoPolar numeroComplejo) {
-        NumeroComplejoBinomica convertido=new NumeroComplejoBinomica(numeroComplejo.pasarABinomica());
+        NumeroComplejoBinomica convertido= new NumeroComplejoBinomica(numeroComplejo.pasarABinomica());
         return this.multiplicar(convertido);
     }
 
     public String dividir(NumeroComplejoBinomica numeroComplejo){
         //NumeroComplejoBinomica aux=this.conjugate();
-        double divisor=Math.pow(numeroComplejo.imaginario, 2)+Math.pow(numeroComplejo.real, 2); 
-        double  realD = (float) (real * numeroComplejo.real +numeroComplejo.imaginario * imaginario)/divisor;
-        double imaginarioD = (float) -1*(real*numeroComplejo.imaginario - numeroComplejo.real*imaginario)/divisor;
+        double divisor = Math.pow(numeroComplejo.imaginario, 2) + Math.pow(numeroComplejo.real, 2);
 
+        if(divisor == 0)
+            return null;
+
+        double realD = (float) (real * numeroComplejo.real + numeroComplejo.imaginario * imaginario) / divisor;
+        double imaginarioD = (float) -1 * (real * numeroComplejo.imaginario - numeroComplejo.real * imaginario) / divisor;
         return mostrarResultado("(", realD, imaginarioD, ")");
     }
 
