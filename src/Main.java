@@ -2,6 +2,7 @@ public class Main
 {
     public static void main(String[] args)
     {
+        //TODO : PASAR A CORRESPONDIENTES TESTS
         //Para Probar:
         NumeroComplejoBinomica unNumero = new NumeroComplejoBinomica(1, 1);
         NumeroComplejoBinomica otroNumero = new NumeroComplejoBinomica(3, 4);
