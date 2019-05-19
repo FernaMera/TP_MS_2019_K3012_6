@@ -94,15 +94,15 @@ public class NumeroComplejoPolar extends NumeroComplejo implements NumeroComplej
     
     public String raiz(int unNumero)
     {
-        double modulo = Math.pow(this.modulo, (1/unNumero));
+        double modulo = Math.pow(this.modulo, ((double)1/(double)unNumero));
         double argumento = 0;
         
         String resultado = "";
         for(int i = 0; i< unNumero; i++)
         {
-          argumento = (this.argumento + 2*i) / unNumero;
-          
-          resultado += "[" + modulo + argumento + "PI]\n";
+            argumento = (this.argumento + 2 * i) / unNumero;
+
+            resultado += mostrarResultado("[", modulo, argumento, "PI]\n");
         }
         
         return resultado;

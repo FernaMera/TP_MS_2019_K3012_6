@@ -40,7 +40,10 @@ class NumeroComplejoPolarTest {
 
     @Test
     void multiplicar() {
-        //TODO
+        NumeroComplejoPolar unNumero = new NumeroComplejoPolar(2,0.33);
+        NumeroComplejoPolar otroNumero = new NumeroComplejoPolar(5,0.2);
+
+        assertEquals("[10,00;0,53PI]", unNumero.multiplicar(otroNumero));
     }
 
     @Test
@@ -50,19 +53,29 @@ class NumeroComplejoPolarTest {
 
     @Test
     void dividir() {
-        //TODO
+        NumeroComplejoPolar unNumero = new NumeroComplejoPolar(2,0.33);
+        NumeroComplejoPolar otroNumero = new NumeroComplejoPolar(5,0.2);
+
+        assertEquals("[0,40;0,13PI]", unNumero.dividir(otroNumero));
     }
 
     @Test
     void dividir1() {
         //TODO
     }
-    
+
+    @Test
+    void potenciaVeinte() {
+        NumeroComplejoPolar unNumeroComplejo = new NumeroComplejoPolar(Math.sqrt(2), 0.25);
+
+        assertEquals("[1024,00;1,00PI]", unNumeroComplejo.potenciar(20));
+    }
+
     @Test
     void raizCubica() {
         NumeroComplejoPolar unNumeroComplejo = new NumeroComplejoPolar(8,1.5);
         
-        assertEquals("[2;0.5PI]\n[2;1.17PI]\n[2;1.83PI]", unNumeroComplejo.raiz(3));
+        assertEquals("[2,00;0,50PI]\n[2,00;1,17PI]\n[2,00;1,83PI]\n", unNumeroComplejo.raiz(3));
     }
 
     @Test

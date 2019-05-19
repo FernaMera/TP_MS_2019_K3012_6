@@ -7,4 +7,6 @@ public interface NumeroComplejoInterfaz {
     String multiplicar(NumeroComplejoPolar x);
     String dividir(NumeroComplejoBinomica x);
     String dividir(NumeroComplejoPolar x);
+    String potenciar(int numero);
+    String raiz(int numero);
 }

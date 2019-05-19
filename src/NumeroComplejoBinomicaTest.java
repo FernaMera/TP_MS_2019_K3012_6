@@ -41,7 +41,10 @@ class NumeroComplejoBinomicaTest {
 
     @Test
     void multiplicar() {
-        //TODO
+        NumeroComplejoBinomica unNumero = new NumeroComplejoBinomica(3,2);
+        NumeroComplejoBinomica otroNumero = new NumeroComplejoBinomica(5,-3);
+
+        assertEquals("(21,00;1,00)", unNumero.multiplicar(otroNumero));
     }
 
     @Test
@@ -51,7 +54,10 @@ class NumeroComplejoBinomicaTest {
 
     @Test
     void dividir() {
-        //TODO
+        NumeroComplejoBinomica unNumero = new NumeroComplejoBinomica(3,2);
+        NumeroComplejoBinomica otroNumero = new NumeroComplejoBinomica(5,-3);
+
+        assertEquals("(0,26;0,56)", unNumero.dividir(otroNumero));
     }
 
     @Test

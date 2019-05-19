@@ -40,7 +40,7 @@
    <bottom>
       <VBox BorderPane.alignment="CENTER">
          <children>
-            <Label text="v0.2">
+            <Label text="v0.5">
                <VBox.margin>
                   <Insets left="5.0" />
                </VBox.margin></Label>
@@ -128,7 +128,21 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Label layoutX="100.0" layoutY="188.0" text="En Construccion" />
+                        <Label layoutX="56.0" layoutY="27.0" text="C:" />
+                        <Label layoutX="57.0" layoutY="60.0" text="n:" />
+                        <TextField fx:id="numeroOpAvanzado1" alignment="CENTER" layoutX="76.0" layoutY="23.0" promptText="(a;b) o [a;b]" />
+                        <TextField fx:id="numeroOpAvanzadoN" alignment="CENTER" layoutX="76.0" layoutY="56.0" promptText="N" />
+                        <HBox alignment="CENTER" layoutX="50.0" layoutY="90.0" prefHeight="33.0" prefWidth="200.0" spacing="20.0">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#potenciar" text="Potencia" />
+                              <Button mnemonicParsing="false" onAction="#raiz" prefHeight="25.0" prefWidth="62.0" text="Raiz" />
+                           </children>
+                        </HBox>
+                        <VBox layoutX="46.0" layoutY="129.0" prefHeight="80.0" prefWidth="200.0">
+                           <children>
+                              <TextArea fx:id="resultadoAvanzado" editable="false" prefHeight="99.0" prefWidth="226.0" />
+                           </children>
+                        </VBox>
                      </children></AnchorPane>
                </content>
             </Tab>

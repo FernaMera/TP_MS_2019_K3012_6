@@ -87,7 +87,7 @@ public class NumeroComplejoBinomica extends NumeroComplejo implements NumeroComp
       
     public String potenciar(int potencia) {
         NumeroComplejoPolar convertido = new NumeroComplejoPolar((this.pasarAPolar()));
-        return convertido.potenciaciar(potencia);
+        return convertido.potenciar(potencia);
     }
     
     /* VERR-ANALIZAR

@@ -12,8 +12,11 @@ public class Controller implements Initializable {
     public TextField unNumero;
     public TextField numeroOpBasico1;
     public TextField numeroOpBasico2;
+    public TextField numeroOpAvanzado1;
+    public TextField numeroOpAvanzadoN;
     public TextArea resultado;
     public TextArea resultadoBasico;
+    public TextArea resultadoAvanzado;
     public ComboBox comboBoxTransformacion;
 
     public void convertirNumero(){
@@ -45,7 +48,6 @@ public class Controller implements Initializable {
                     break;
                 } catch (Exception e) {
                     mostrarAlerta();
-                    return;
                 }
             }
         }
@@ -65,9 +67,9 @@ public class Controller implements Initializable {
     public void cambiarOpcionTransformacion()
     {
         String option = (String)comboBoxTransformacion.getValue();
-        if (option == "Binomica -> Polar")
+        if (option.equals("Binomica -> Polar"))
             unNumero.setPromptText("(a;b)");
-        if (option == "Polar -> Binomica")
+        if (option.equals("Polar -> Binomica"))
             unNumero.setPromptText("[a;b]");
     }
 
@@ -185,6 +187,30 @@ public class Controller implements Initializable {
         }
     }
 
+    public void potenciar()
+    {
+        NumeroComplejoInterfaz numeroComplejo = obtenerNumeroComplejo(numeroOpAvanzado1);
+        int numeroNatural = Integer.parseInt(numeroOpAvanzadoN.getText());
+
+        try{
+            resultadoAvanzado.setText(numeroComplejo.potenciar(numeroNatural));
+        } catch (Exception nullNumbers) {
+            //NOTHING
+        }
+    }
+
+    public void raiz()
+    {
+        NumeroComplejoInterfaz numeroComplejo = obtenerNumeroComplejo(numeroOpAvanzado1);
+        int numeroNatural = Integer.parseInt(numeroOpAvanzadoN.getText());
+
+        try{
+            resultadoAvanzado.setText(numeroComplejo.raiz(numeroNatural));
+        } catch (Exception nullNumbers) {
+            //NOTHING
+        }
+    }
+
     public void cerrarAplicacion()
     {
         Platform.exit();
@@ -193,6 +219,13 @@ public class Controller implements Initializable {
     public void acercaDe()
     {
         //TODO
+        Alert dialogPane = new Alert(Alert.AlertType.INFORMATION);
+
+        dialogPane.setTitle("Acerca");
+        dialogPane.setHeaderText("Trabajo Practico de Matemarica Superior");
+        dialogPane.setContentText("Creado por Grupo 6: Noelia, Marisol, Rafael, Fernando y Luis");
+
+        dialogPane.showAndWait();
     }
 
     //Metodos Auxiliares
