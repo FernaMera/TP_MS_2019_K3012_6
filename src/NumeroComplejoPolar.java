@@ -85,11 +85,26 @@ public class NumeroComplejoPolar extends NumeroComplejo implements NumeroComplej
         return mostrarResultado("[", moduloD, argumentoD, "PI]");
     }
     
-        public String potenciaciar(int potencia) {
+    public String potenciar(int potencia) {
         double moduloPotenciado = Math.pow(modulo, potencia);
         double argumentoPotenciado = argumento*potencia;
 
-
         return mostrarResultado("[", moduloPotenciado, argumentoPotenciado, "PI]");
+    }
+    
+    public String raiz(int unNumero)
+    {
+        double modulo = Math.pow(this.modulo, (1/unNumero));
+        double argumento = 0;
+        
+        String resultado = "";
+        for(int i = 0; i< unNumero; i++)
+        {
+          argumento = (this.argumento + 2*i) / unNumero;
+          
+          resultado += "[" + modulo + argumento + "PI]\n";
+        }
+        
+        return resultado;
     }
 }

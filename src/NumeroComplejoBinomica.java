@@ -84,8 +84,7 @@ public class NumeroComplejoBinomica extends NumeroComplejo implements NumeroComp
         NumeroComplejoBinomica convertido=new NumeroComplejoBinomica(numeroComplejo.pasarABinomica());
         return this.dividir(convertido);
     }
-    
-    
+      
     public String potenciar(int potencia) {
         NumeroComplejoPolar convertido = new NumeroComplejoPolar((this.pasarAPolar()));
         return convertido.potenciaciar(potencia);
@@ -101,6 +100,13 @@ public class NumeroComplejoBinomica extends NumeroComplejo implements NumeroComp
     
     */
     
+    public String raiz(int unNumero)
+    {
+        NumeroComplejoPolar numeroComplejo = new NumeroComplejoPolar(this.pasarAPolar());
+
+        return numeroComplejo.raiz(unNumero);
+    }
+    
     public String pasarAPolar()
     {
         double modulo = Math.sqrt(Math.pow(real, 2) + Math.pow(imaginario, 2));
@@ -111,7 +117,7 @@ public class NumeroComplejoBinomica extends NumeroComplejo implements NumeroComp
         }
         
         if(real == 0 && imaginario < 0 ){
-            argumento = 0.75;
+            argumento = 1.5;
         }
         
         if(real < 0 && imaginario == 0){
