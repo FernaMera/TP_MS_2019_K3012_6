@@ -57,6 +57,13 @@ class NumeroComplejoPolarTest {
     void dividir1() {
         //TODO
     }
+    
+    @Test
+    void raizCubica() {
+        NumeroComplejoPolar unNumeroComplejo = new NumeroComplejoPolar(8,1.5);
+        
+        assertEquals("[2;0.5PI]\n[2;1.17PI]\n[2;1.83PI]", unNumeroComplejo.raiz(3));
+    }
 
     @Test
     void pasarABinomica() {
