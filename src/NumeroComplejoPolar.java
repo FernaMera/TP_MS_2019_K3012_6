@@ -111,16 +111,35 @@ public class NumeroComplejoPolar extends NumeroComplejo implements NumeroComplej
     public String raiz(int unNumero)
     {
         double modulo = Math.pow(this.modulo, ((double)1/(double)unNumero));
-        double argumento = 0;
+        double argumento;
         
         String resultado = "";
         for(int i = 0; i< unNumero; i++)
         {
             argumento = (this.argumento + 2 * i) / unNumero;
 
+            if(esPrimitiva(modulo, unNumero)){
+                resultado += "Primitiva:";
+            }
             resultado += mostrarResultado("[", modulo, argumento, "PI]\n");
         }
         
         return resultado;
+    }
+
+    private boolean esPrimitiva(double modulo, int numero)
+    {
+        if(mcd((int) modulo, numero) == 1)
+            return true;
+
+        return false;
+    }
+
+    private int mcd(int num1,int num2)
+    {
+        if(num2==0)
+            return num1;
+        else
+            return mcd(num2, num1 % num2);
     }
 }
