@@ -118,7 +118,7 @@ public class NumeroComplejoPolar extends NumeroComplejo implements NumeroComplej
         {
             argumento = (this.argumento + 2 * i) / unNumero;
 
-            if(esPrimitiva(modulo, unNumero)){
+            if(esPrimitiva(unNumero, i)){
                 resultado += "Primitiva:";
             }
             resultado += mostrarResultado("[", modulo, argumento, "PI]\n");
@@ -127,9 +127,9 @@ public class NumeroComplejoPolar extends NumeroComplejo implements NumeroComplej
         return resultado;
     }
 
-    private boolean esPrimitiva(double modulo, int numero)
+    private boolean esPrimitiva(int raiz, int numero)
     {
-        if(mcd((int) modulo, numero) == 1)
+        if(mcd(raiz, numero) == 1)
             return true;
 
         return false;
