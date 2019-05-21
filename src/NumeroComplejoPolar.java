@@ -144,7 +144,7 @@ boolean es_unidad = this.es_unidad ();
             return mcd(num2, num1 % num2);
     }
 
-public bool es_unidad ()
+public boolean es_unidad ()
 {
 NumeroComplejoBinomico numero = new NumeroComplejoBinomico (this.pasarABinomica ());
 
