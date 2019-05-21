@@ -74,8 +74,15 @@ class NumeroComplejoPolarTest {
     @Test
     void raizCubica() {
         NumeroComplejoPolar unNumeroComplejo = new NumeroComplejoPolar(8,1.5);
-        
-        assertEquals("[2,00;0,50PI]\nPrimitiva:[2,00;1,17PI]\nPrimitiva:[2,00;1,83PI]\n", unNumeroComplejo.raiz(3));
+
+        assertEquals("[2,00;0,50PI]\n[2,00;1,17PI]\n[2,00;1,83PI]\n", unNumeroComplejo.raiz(3));
+    }
+
+    @Test
+    void raizPrimitiva() {
+        NumeroComplejoPolar unNumeroComplejo = new NumeroComplejoPolar(1,0);
+
+        assertEquals("[1,00;0,00PI]\nPrimitiva:[1,00;0,67PI]\nPrimitiva:[1,00;1,33PI]\n", unNumeroComplejo.raiz(3));
     }
 
     @Test
