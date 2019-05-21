@@ -146,7 +146,7 @@ boolean es_unidad = this.es_unidad ();
 
 public boolean es_unidad ()
 {
-NumeroComplejoBinomico numero = new NumeroComplejoBinomico (this.pasarABinomica ());
+NumeroComplejoBinomica numero = new NumeroComplejoBinomica (this.pasarABinomica ());
 
 return numero.es_unidad ();
 }
