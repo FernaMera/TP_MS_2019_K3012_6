@@ -114,11 +114,12 @@ public class NumeroComplejoPolar extends NumeroComplejo implements NumeroComplej
         double argumento;
         
         String resultado = "";
+boolean es_unidad = this.es_unidad ();
         for(int i = 0; i< unNumero; i++)
         {
             argumento = (this.argumento + 2 * i) / unNumero;
 
-            if(esPrimitiva(unNumero, i)){
+            if(es_unidad && esPrimitiva(unNumero, i)){
                 resultado += "Primitiva:";
             }
             resultado += mostrarResultado("[", modulo, argumento, "PI]\n");
@@ -142,4 +143,11 @@ public class NumeroComplejoPolar extends NumeroComplejo implements NumeroComplej
         else
             return mcd(num2, num1 % num2);
     }
+
+public bool es_unidad ()
+{
+NumeroComplejoBinomico numero = new NumeroComplejoBinomico (this.pasarABinomica ());
+
+return numero.es_unidad ();
+}
 }
