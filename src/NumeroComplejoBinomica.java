@@ -152,7 +152,7 @@ public class NumeroComplejoBinomica extends NumeroComplejo implements NumeroComp
         return mostrarResultado("[", modulo, argumento, "PI]");
     }
 
-public bool es_unidad ()
+public boolean es_unidad ()
 {
 return real == 1 && imaginario == 0;
 }
