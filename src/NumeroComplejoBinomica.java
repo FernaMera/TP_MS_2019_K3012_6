@@ -1,6 +1,6 @@
 public class NumeroComplejoBinomica extends NumeroComplejo implements NumeroComplejoInterfaz{
-    private double real;
-    private double imaginario;
+     double real;
+     double imaginario;
     
     public NumeroComplejoBinomica(double x, double y)
     {
