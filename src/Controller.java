@@ -14,9 +14,18 @@ public class Controller implements Initializable {
     public TextField numeroOpBasico2;
     public TextField numeroOpAvanzado1;
     public TextField numeroOpAvanzadoN;
+    public TextField amplitud1;
+    public TextField amplitud2;
+    public TextField funcion1;
+    public TextField funcion2;
+    public TextField frecuencia1;
+    public TextField frecuencia2;
+    public TextField fase1;
+    public TextField fase2;
     public TextArea resultado;
     public TextArea resultadoBasico;
     public TextArea resultadoAvanzado;
+    public TextArea resultadoFasores;
     public ComboBox comboBoxTransformacion;
 
     public void convertirNumero(){
@@ -209,6 +218,22 @@ public class Controller implements Initializable {
         } catch (Exception nullNumbers) {
             //NOTHING
         }
+    }
+
+    public void sumarFasores()
+    {
+        Fasor fasor1 = new Fasor(
+                funcion1.getText(),
+                Integer.parseInt(frecuencia1.getText()),
+                Double.parseDouble(fase1.getText()),
+                Double.parseDouble(amplitud1.getText()));
+        Fasor fasor2 = new Fasor(
+                funcion2.getText(),
+                Integer.parseInt(frecuencia2.getText()),
+                Double.parseDouble(fase2.getText()),
+                Double.parseDouble(amplitud2.getText()));
+
+        resultadoFasores.setText(fasor1.sumar(fasor2));
     }
 
     public void cerrarAplicacion()

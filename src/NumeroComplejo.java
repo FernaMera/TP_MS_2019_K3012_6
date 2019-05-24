@@ -10,10 +10,10 @@ public abstract class NumeroComplejo
         return abrirPar + df.format(a) + ";" + df.format(b) + cerrarPar ;
     }
     // para poder mostrar los fasores
-     public String mostrarResultado(double amplitud, String funcion ,double frecuencia ,double fase ,String numeroPi  ){
+     public String mostrarResultado(double amplitud, String funcion ,double frecuencia ,double fase){
         
         DecimalFormat d = new DecimalFormat("0.00");
-         System.out.println( d.format(amplitud) + " " + funcion + "(" + d.format(frecuencia) +"t" + d.format(fase) + numeroPi + ")");
-        return d.format(amplitud) + funcion + "(" + d.format(frecuencia) + "t"  + d.format(fase) +numeroPi + ")" ;
+         System.out.println( d.format(amplitud) + " " + funcion + "(" + d.format(frecuencia) + "t + " + d.format(fase) + "PI)");
+        return d.format(amplitud) + " " + funcion + "(" + d.format(frecuencia) + "t + "  + d.format(fase) + "PI)";
     }
 }
