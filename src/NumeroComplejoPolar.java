@@ -28,15 +28,9 @@ public class NumeroComplejoPolar extends NumeroComplejo implements NumeroComplej
 
         argumento = Double.parseDouble(numeroComplejo.substring(finalPrimerNumero + 1, finalSegundoNumero));
     }
-    
-    public String pasarABinomica()
-    {
-        double real = modulo * Math.cos(argumento * Math.PI);
-        double imaginario = modulo * Math.sin(argumento * Math.PI);
 
-        return mostrarResultado("(", real, imaginario, ")");
-    }
-    
+    /*OPERACIONES BASICAS*/
+
     public String sumar(NumeroComplejoBinomica numeroComplejo){
         NumeroComplejoBinomica numeroConvertido = new NumeroComplejoBinomica(this.pasarABinomica());
         return numeroConvertido.sumar(numeroComplejo);
@@ -84,7 +78,9 @@ public class NumeroComplejoPolar extends NumeroComplejo implements NumeroComplej
          
         return mostrarResultado("[", moduloD, argumentoD, "PI]");
     }
-    
+
+    /*OPERACIONES AVANZADAS*/
+
     public String potenciar(int potencia) {
         double moduloPotenciado = Math.pow(modulo, potencia);
         double argumentoPotenciado = argumento*potencia;
@@ -114,7 +110,8 @@ public class NumeroComplejoPolar extends NumeroComplejo implements NumeroComplej
         double argumento;
         
         String resultado = "";
-boolean es_unidad = this.es_unidad ();
+        boolean es_unidad = this.es_unidad ();
+
         for(int i = 0; i< unNumero; i++)
         {
             argumento = (this.argumento + 2 * i) / unNumero;
@@ -126,6 +123,16 @@ boolean es_unidad = this.es_unidad ();
         }
         
         return resultado;
+    }
+
+    /*AUXILIARES*/
+
+    public String pasarABinomica()
+    {
+        double real = modulo * Math.cos(argumento * Math.PI);
+        double imaginario = modulo * Math.sin(argumento * Math.PI);
+
+        return mostrarResultado("(", real, imaginario, ")");
     }
 
     private boolean esPrimitiva(int raiz, int numero)
@@ -144,10 +151,20 @@ boolean es_unidad = this.es_unidad ();
             return mcd(num2, num1 % num2);
     }
 
-public boolean es_unidad ()
-{
-NumeroComplejoBinomica numero = new NumeroComplejoBinomica (this.pasarABinomica ());
+    public boolean es_unidad ()
+    {
+        NumeroComplejoBinomica numero = new NumeroComplejoBinomica (this.pasarABinomica());
 
-return numero.es_unidad ();
-}
+        return numero.es_unidad ();
+    }
+
+    public double get_modulo()
+    {
+        return modulo;
+    }
+
+    public double get_argumento()
+    {
+        return argumento;
+    }
 }

@@ -1,6 +1,6 @@
 public class NumeroComplejoBinomica extends NumeroComplejo implements NumeroComplejoInterfaz{
-     double real;
-     double imaginario;
+    private double real;
+    private double imaginario;
     
     public NumeroComplejoBinomica(double x, double y)
     {
@@ -84,21 +84,22 @@ public class NumeroComplejoBinomica extends NumeroComplejo implements NumeroComp
         NumeroComplejoBinomica convertido=new NumeroComplejoBinomica(numeroComplejo.pasarABinomica());
         return this.dividir(convertido);
     }
-      
-    public String potenciar(int potencia) {
-        NumeroComplejoPolar convertido = new NumeroComplejoPolar((this.pasarAPolar()));
-        return convertido.potenciar(potencia);
-    }
-    
+
     /* VERR-ANALIZAR
        public NumeroComplejoBinomica conjugate()
        {
            double imaginarioAux= (imaginario*-1);
-           
+
            return new NumeroComplejoBinomica(real, imaginarioAux);
        }
-    
     */
+
+    /*OPERACIONES AVANZADAS*/
+
+    public String potenciar(int potencia) {
+        NumeroComplejoPolar convertido = new NumeroComplejoPolar((this.pasarAPolar()));
+        return convertido.potenciar(potencia);
+    }
     
     public String raiz(int unNumero)
     {
@@ -106,7 +107,9 @@ public class NumeroComplejoBinomica extends NumeroComplejo implements NumeroComp
 
         return numeroComplejo.raiz(unNumero);
     }
-    
+
+    /*AUXILIARES*/
+
     public String pasarAPolar()
     {
         double modulo = Math.sqrt(Math.pow(real, 2) + Math.pow(imaginario, 2));
@@ -152,8 +155,16 @@ public class NumeroComplejoBinomica extends NumeroComplejo implements NumeroComp
         return mostrarResultado("[", modulo, argumento, "PI]");
     }
 
-public boolean es_unidad ()
-{
-return real == 1 && imaginario == 0;
-}
+    public boolean es_unidad ()
+    {
+        return real == 1 && imaginario == 0;
+    }
+
+    public double get_real(){
+        return real;
+    }
+
+    public double get_imaginario(){
+        return imaginario;
+    }
 }
