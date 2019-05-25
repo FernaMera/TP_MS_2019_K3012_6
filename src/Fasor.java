@@ -21,43 +21,69 @@ public class Fasor extends NumeroComplejo  {
            if(!funcion.equalsIgnoreCase(unFasor.funcion)){
                //TODO convertir ambas funciones a cosenos
            }
-
            //TODO hacer lo mismo que esta abajo
        }*/
-       if(this.funcion.equalsIgnoreCase(unFasor.funcion) && (this.frecuencia == unFasor.frecuencia) ){
+      if (this.frecuencia == unFasor.frecuencia) {
+         if(this.funcion.equalsIgnoreCase(unFasor.funcion) ){
 
-         NumeroComplejoPolar numeroConvertidoF1 = new NumeroComplejoPolar(amplitud,fase);
-         NumeroComplejoPolar numeroConvertidoF2 = new NumeroComplejoPolar(unFasor.amplitud,unFasor.fase);
-         
-         //me quiero quedar con el numero binomico  para poder sacar la amplitud
-         NumeroComplejoBinomica numeroConvertidoF11 = new NumeroComplejoBinomica(numeroConvertidoF1.pasarABinomica());
-         NumeroComplejoBinomica numeroConvertidoF12 = new NumeroComplejoBinomica(numeroConvertidoF2.pasarABinomica());
-        
-         NumeroComplejoBinomica complejoSumado = new NumeroComplejoBinomica(numeroConvertidoF11.sumar(numeroConvertidoF12));
-
-         /*SE PUEDE RESOLVER PASANDO DE NUEVO A POLAR
-         double amplitudDelFasorSumado =
-                 Math.sqrt(Math.pow(complejoSumado.get_real(),2) + Math.pow(complejoSumado.get_imaginario(),2) ) ;
-         double argumentoDelFasorSumado =
-                 Math.toDegrees(Math.atan(complejoSumado.get_imaginario() / complejoSumado.get_real())) * 0.0174533 ;
-         */
-         NumeroComplejoPolar complejoFinal = new NumeroComplejoPolar(complejoSumado.pasarAPolar());
-
-         /*el argumento queda dividido por pi, por lo que lo agrego siempre en el resultado -VER: mostrarResultado*/
-         return mostrarResultado(complejoFinal.get_modulo(), funcion, frecuencia, complejoFinal.get_argumento());
+       this.calcular_fasor_sumado(unFasor);
        }
+         else{
+             if(this.funcion.equalsIgnoreCase("SEN")&& unFasor.funcion.equalsIgnoreCase("COS")){
+               this.convertir_fasor_seno_a_coseno();
+        
+                this.calcular_fasor_sumado(unFasor);
+         }else{
+                 if(this.funcion.equalsIgnoreCase("COS")&& unFasor.funcion.equalsIgnoreCase("SEN")){
+                  unFasor.convertir_fasor_seno_a_coseno();
+             
+                  this.calcular_fasor_sumado(unFasor);
+                 
+             }
+           
+      }
+      
+      
+   }
+      
+   }
       return null;
    }
-
-   public void convertir_fasor(){
+   
+   
+   public void convertir_fasor_seno_a_coseno(){
        //TODO usar funciones de abajo para MODIFICAR el fasor
+    
+       this.set_funcion("COS");
+       this.set_fase(-0.5);
+       
    }
-
+   
+   public String calcular_fasor_sumado(Fasor unFasor){
+       
+         NumeroComplejoPolar numeroConvertidoF1 =
+                 new NumeroComplejoPolar(amplitud,fase);
+         NumeroComplejoPolar numeroConvertidoF2 = 
+                 new NumeroComplejoPolar(unFasor.amplitud,unFasor.fase);
+          NumeroComplejoBinomica complejoSumado =
+                  new NumeroComplejoBinomica(numeroConvertidoF1.sumar(numeroConvertidoF2));
+           NumeroComplejoPolar complejoFinal = 
+                     new NumeroComplejoPolar(complejoSumado.pasarAPolar());
+              return mostrarResultado(complejoFinal.get_modulo(), funcion, frecuencia, complejoFinal.get_argumento());
+         
+   }
+   
+   
+    
    public void set_funcion(String funcion) {
        this.funcion = funcion;
    }
 
    public void set_fase(double fase) {
-       this.fase = fase;
+       this.fase = this.fase + fase;
    }
+
 }
+   
+   
+   
