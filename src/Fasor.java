@@ -1,15 +1,17 @@
 public class Fasor extends NumeroComplejo  {
    
+   private double amplitud;
    private String funcion; 
    private int frecuencia ;
    private double fase;
-   private double amplitud;
+  
 
-   public Fasor(String funcion, int frecuencia, double fase, double amplitud){
+   public Fasor(double amplitud,String funcion, int frecuencia, double fase){
+       this.amplitud = amplitud;
        this.funcion = funcion;
        this.frecuencia = frecuencia;
        this.fase = fase;
-       this.amplitud = amplitud;
+       
    }
    
    public String sumar(Fasor unFasor){
