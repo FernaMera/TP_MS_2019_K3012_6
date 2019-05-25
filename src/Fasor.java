@@ -50,6 +50,39 @@ public class Fasor extends NumeroComplejo  {
       return null;
    }
    
+   public String restar(Fasor unFasor){
+
+      
+      if (this.frecuencia == unFasor.frecuencia) {
+         if(this.funcion.equalsIgnoreCase(unFasor.funcion) ){
+
+       this.calcular_fasor_restado(unFasor);
+       }
+         else{
+             if(this.funcion.equalsIgnoreCase("SEN")&& unFasor.funcion.equalsIgnoreCase("COS")){
+               this.convertir_fasor_seno_a_coseno();
+        
+                this.calcular_fasor_restado(unFasor);
+         }else{
+                 if(this.funcion.equalsIgnoreCase("COS")&& unFasor.funcion.equalsIgnoreCase("SEN")){
+                  unFasor.convertir_fasor_seno_a_coseno();
+             
+                  this.calcular_fasor_restado(unFasor);
+                 
+             }
+           
+      }
+      
+      
+   }
+      
+   }
+      return null;
+   }
+   
+   
+   
+   
    
    public void convertir_fasor_seno_a_coseno(){
        //TODO usar funciones de abajo para MODIFICAR el fasor
@@ -69,6 +102,20 @@ public class Fasor extends NumeroComplejo  {
                   new NumeroComplejoBinomica(numeroConvertidoF1.sumar(numeroConvertidoF2));
            NumeroComplejoPolar complejoFinal = 
                      new NumeroComplejoPolar(complejoSumado.pasarAPolar());
+              return mostrarResultado(complejoFinal.get_modulo(), funcion, frecuencia, complejoFinal.get_argumento());
+         
+   }
+   
+    public String calcular_fasor_restado(Fasor unFasor){
+       
+         NumeroComplejoPolar numeroConvertidoF1 =
+                 new NumeroComplejoPolar(amplitud,fase);
+         NumeroComplejoPolar numeroConvertidoF2 = 
+                 new NumeroComplejoPolar(unFasor.amplitud,unFasor.fase);
+          NumeroComplejoBinomica complejoRestado =
+                  new NumeroComplejoBinomica(numeroConvertidoF1.restar(numeroConvertidoF2));
+           NumeroComplejoPolar complejoFinal = 
+                     new NumeroComplejoPolar(complejoRestado.pasarAPolar());
               return mostrarResultado(complejoFinal.get_modulo(), funcion, frecuencia, complejoFinal.get_argumento());
          
    }
