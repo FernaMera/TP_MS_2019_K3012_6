@@ -90,6 +90,59 @@ public class Main
          numeroD1.dividir(numeroD2);
  
         
+        /* ------------------- PRUEBAS CON FASORES---------------------- */
+        
+        Fasor fasor1 = new Fasor(5,"COS", 3, (1.0/3.0));
+        Fasor fasor2 = new Fasor(3,"COS", 3 , (-1.0/5.0));
+        
+        fasor1.sumar(fasor2);
+        
+        //Respuesta esperada : 5,56 COS(3,00t + 0,15PI)
+        
+        System.out.println("************************************+");
+        
+       /*   MISMO EJERCICIOOOOO!! Variando con sen y cos
+        
+        */
+       
+       
+       Fasor fasor3 = new Fasor(2,"COS", 4,0);
+        Fasor fasor4 = new Fasor(4,"COS", 4 , (-1.0/2.0));
+        
+        fasor3.sumar(fasor4);
+        
+        // Respuesta esperada : 4,47 COS(4,00t + 1,65PI)
+        
+        System.out.println("************************************+");
+        
+         Fasor fasor5 = new Fasor(2,"COS", 4,0);
+        Fasor fasor6 = new Fasor(4,"SEN", 4 ,0);
+        
+        fasor5.sumar(fasor6);
+        
+        // Respuesta esperada : 4,47 COS(4,00t + 1,65PI)
+        
+         System.out.println("************************************+");
+         
+         Fasor fasor7 = new Fasor(4,"SEN", 4 ,0);
+         Fasor fasor8 = new Fasor(2,"COS", 4,0);
+     
+        
+        fasor7.sumar(fasor8);
+        // Respuesta esperada : 4,47 COS(4,00t + 1,65PI)
+        
+        
+        /* RESTA */
+        
+      System.out.println("**************** RESTARRR********************");   
+       Fasor fasor9 = new Fasor(2,"COS", 4,0);
+        Fasor fasor10 = new Fasor(4,"COS", 4 , (-1.0/2.0));
+        
+        fasor9.restar(fasor10);
+        
+        // Respuesta esperada
+        
+        
         
     }
 }
