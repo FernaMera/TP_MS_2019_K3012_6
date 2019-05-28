@@ -97,7 +97,7 @@ public class Main
         
         fasor1.sumar(fasor2);
         
-        //Respuesta esperada : 5,56 COS(3,00t + 0,15PI)
+        //Respuesta esperada : 5,56 COS(3t + 0,15PI)
         
         System.out.println("************************************+");
         
@@ -111,7 +111,7 @@ public class Main
         
         fasor3.sumar(fasor4);
         
-        // Respuesta esperada : 4,47 COS(4,00t + 1,65PI)
+        // Respuesta esperada : 4,47 COS(4t + 1,65PI)
         
         System.out.println("************************************+");
         
@@ -120,7 +120,7 @@ public class Main
         
         fasor5.sumar(fasor6);
         
-        // Respuesta esperada : 4,47 COS(4,00t + 1,65PI)
+        // Respuesta esperada : 4,47 COS(4t + 1,65PI)
         
          System.out.println("************************************+");
          
@@ -129,7 +129,7 @@ public class Main
      
         
         fasor7.sumar(fasor8);
-        // Respuesta esperada : 4,47 COS(4,00t + 1,65PI)
+        // Respuesta esperada : 4,47 COS(4t + 1,65PI)
         
         
         /* RESTA */
@@ -140,7 +140,7 @@ public class Main
         
         fasor9.restar(fasor10);
         
-        // Respuesta esperada : 4,47 COS(4,00t + 0,35PI)
+        // Respuesta esperada : 4,47 COS(4t + 0,35PI)
         
         
         
