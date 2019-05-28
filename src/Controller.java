@@ -223,17 +223,44 @@ public class Controller implements Initializable {
     public void sumarFasores()
     {
         Fasor fasor1 = new Fasor(
+                Double.parseDouble(amplitud1.getText()),
                 funcion1.getText(),
                 Integer.parseInt(frecuencia1.getText()),
-                Double.parseDouble(fase1.getText()),
-                Double.parseDouble(amplitud1.getText()));
+                Double.parseDouble(fase1.getText()));
         Fasor fasor2 = new Fasor(
+                Double.parseDouble(amplitud2.getText()),
                 funcion2.getText(),
                 Integer.parseInt(frecuencia2.getText()),
-                Double.parseDouble(fase2.getText()),
-                Double.parseDouble(amplitud2.getText()));
+                Double.parseDouble(fase2.getText()));
 
-        resultadoFasores.setText(fasor1.sumar(fasor2));
+        try {
+            resultadoFasores.setText(fasor1.sumar(fasor2));
+        }catch (Exception e)
+        {
+            mostrarAlertaFasores();
+        }
+    }
+
+    public void restarFasores()
+    {
+        try
+        {
+            Fasor fasor1 = new Fasor(
+                    Double.parseDouble(amplitud1.getText()),
+                    funcion1.getText(),
+                    Integer.parseInt(frecuencia1.getText()),
+                    Double.parseDouble(fase1.getText()));
+            Fasor fasor2 = new Fasor(
+                    Double.parseDouble(amplitud2.getText()),
+                    funcion2.getText(),
+                    Integer.parseInt(frecuencia2.getText()),
+                    Double.parseDouble(fase2.getText()));
+
+            resultadoFasores.setText(fasor1.restar(fasor2));
+        } catch (Exception e)
+        {
+            mostrarAlertaFasores();
+        }
     }
 
     public void cerrarAplicacion()
@@ -274,6 +301,16 @@ public class Controller implements Initializable {
         alert.setTitle("Precaucion");
         alert.setHeaderText("Error de Sintaxis");
         alert.setContentText("Los numeros complejos no deben tener letras ni otros caracteres");
+
+        alert.showAndWait();
+    }
+
+    private void mostrarAlertaFasores()
+    {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Precaucion");
+        alert.setHeaderText("Error de Sintaxis");
+        alert.setContentText("Los numeros no deben tener letras ni otros caracteres");
 
         alert.showAndWait();
     }

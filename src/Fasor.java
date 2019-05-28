@@ -15,81 +15,59 @@ public class Fasor extends NumeroComplejo  {
    }
    
    public String sumar(Fasor unFasor){
-
-       //chequear primero que la frecuencia sea igual y luego si las funciones no son iguales convertirlas
-       /*if(frecuencia == unFasor.frecuencia){
-           if(!funcion.equalsIgnoreCase(unFasor.funcion)){
-               //TODO convertir ambas funciones a cosenos
-           }
-           //TODO hacer lo mismo que esta abajo
-       }*/
       if (this.frecuencia == unFasor.frecuencia) {
          if(this.funcion.equalsIgnoreCase(unFasor.funcion) ){
-
-       this.calcular_fasor_sumado(unFasor);
-       }
+             return calcular_fasor_sumado(unFasor);
+         }
          else{
              if(this.funcion.equalsIgnoreCase("SEN")&& unFasor.funcion.equalsIgnoreCase("COS")){
-               this.convertir_fasor_seno_a_coseno();
-        
-                this.calcular_fasor_sumado(unFasor);
+                 this.convertir_fasor_seno_a_coseno();
+
+                 return calcular_fasor_sumado(unFasor);
          }else{
                  if(this.funcion.equalsIgnoreCase("COS")&& unFasor.funcion.equalsIgnoreCase("SEN")){
-                  unFasor.convertir_fasor_seno_a_coseno();
-             
-                  this.calcular_fasor_sumado(unFasor);
-                 
+                     unFasor.convertir_fasor_seno_a_coseno();
+
+                     return calcular_fasor_sumado(unFasor);
+                 }
              }
-           
+             return "Error: funciones no compatibles";
+         }
       }
-      
-      
-   }
-      
-   }
-      return null;
+      return "Error: frecuencias distintas";
    }
    
    public String restar(Fasor unFasor){
 
       
       if (this.frecuencia == unFasor.frecuencia) {
-         if(this.funcion.equalsIgnoreCase(unFasor.funcion) ){
-
-       this.calcular_fasor_restado(unFasor);
-       }
-         else{
+         if(this.funcion.equalsIgnoreCase(unFasor.funcion) )
+         {
+             return calcular_fasor_restado(unFasor);
+         }
+         else
+             {
              if(this.funcion.equalsIgnoreCase("SEN")&& unFasor.funcion.equalsIgnoreCase("COS")){
-               this.convertir_fasor_seno_a_coseno();
-        
-                this.calcular_fasor_restado(unFasor);
-         }else{
-                 if(this.funcion.equalsIgnoreCase("COS")&& unFasor.funcion.equalsIgnoreCase("SEN")){
-                  unFasor.convertir_fasor_seno_a_coseno();
-             
-                  this.calcular_fasor_restado(unFasor);
-                 
+                 this.convertir_fasor_seno_a_coseno();
+
+                 return calcular_fasor_restado(unFasor);
+             }else{
+                 if(this.funcion.equalsIgnoreCase("COS")&& unFasor.funcion.equalsIgnoreCase("SEN"))
+                 {
+                     unFasor.convertir_fasor_seno_a_coseno();
+
+                     return calcular_fasor_restado(unFasor);
+                 }
              }
-           
+                 return "Error: funciones no compatibles";
+             }
       }
-      
-      
+      return "Error: frecuencias distintas";
    }
-      
-   }
-      return null;
-   }
-   
-   
-   
-   
    
    public void convertir_fasor_seno_a_coseno(){
-       //TODO usar funciones de abajo para MODIFICAR el fasor
-    
        this.set_funcion("COS");
        this.set_fase(-0.5);
-       
    }
    
    public String calcular_fasor_sumado(Fasor unFasor){
@@ -98,12 +76,12 @@ public class Fasor extends NumeroComplejo  {
                  new NumeroComplejoPolar(amplitud,fase);
          NumeroComplejoPolar numeroConvertidoF2 = 
                  new NumeroComplejoPolar(unFasor.amplitud,unFasor.fase);
-          NumeroComplejoBinomica complejoSumado =
-                  new NumeroComplejoBinomica(numeroConvertidoF1.sumar(numeroConvertidoF2));
-           NumeroComplejoPolar complejoFinal = 
-                     new NumeroComplejoPolar(complejoSumado.pasarAPolar());
-              return mostrarResultado(complejoFinal.get_modulo(), funcion, frecuencia, complejoFinal.get_argumento());
-         
+         NumeroComplejoBinomica complejoSumado =
+                 new NumeroComplejoBinomica(numeroConvertidoF1.sumar(numeroConvertidoF2));
+         NumeroComplejoPolar complejoFinal =
+                 new NumeroComplejoPolar(complejoSumado.pasarAPolar());
+
+         return mostrarResultado(complejoFinal.get_modulo(), funcion, frecuencia, complejoFinal.get_argumento());
    }
    
     public String calcular_fasor_restado(Fasor unFasor){
@@ -112,16 +90,14 @@ public class Fasor extends NumeroComplejo  {
                  new NumeroComplejoPolar(amplitud,fase);
          NumeroComplejoPolar numeroConvertidoF2 = 
                  new NumeroComplejoPolar(unFasor.amplitud,unFasor.fase);
-          NumeroComplejoBinomica complejoRestado =
-                  new NumeroComplejoBinomica(numeroConvertidoF1.restar(numeroConvertidoF2));
-           NumeroComplejoPolar complejoFinal = 
-                     new NumeroComplejoPolar(complejoRestado.pasarAPolar());
-              return mostrarResultado(complejoFinal.get_modulo(), funcion, frecuencia, complejoFinal.get_argumento());
-         
+         NumeroComplejoBinomica complejoRestado =
+                 new NumeroComplejoBinomica(numeroConvertidoF1.restar(numeroConvertidoF2));
+         NumeroComplejoPolar complejoFinal =
+                 new NumeroComplejoPolar(complejoRestado.pasarAPolar());
+
+         return mostrarResultado(complejoFinal.get_modulo(), funcion, frecuencia, complejoFinal.get_argumento());
    }
-   
-   
-    
+
    public void set_funcion(String funcion) {
        this.funcion = funcion;
    }

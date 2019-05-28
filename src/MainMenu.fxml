@@ -253,9 +253,10 @@
                                     </TextField>
                                  </children>
                               </HBox>
-                              <HBox alignment="TOP_CENTER">
+                              <HBox alignment="TOP_CENTER" spacing="20.0">
                                  <children>
                                     <Button mnemonicParsing="false" onAction="#sumarFasores" text="Sumar" />
+                                    <Button mnemonicParsing="false" onAction="#restarFasores" text="Restar" />
                                  </children>
                                  <padding>
                                     <Insets top="5.0" />
