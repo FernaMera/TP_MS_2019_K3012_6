@@ -140,7 +140,7 @@ public class Main
         
         fasor9.restar(fasor10);
         
-        // Respuesta esperada
+        // Respuesta esperada : 4,47 COS(4,00t + 0,35PI)
         
         
         
